@@ -1,23 +1,110 @@
 * {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.UpMenu {
+/* Stylowanie dla wszystkich ekranów */
+body {
+    background-color: rgb(31, 30, 30);
     font-family: Arial, Helvetica, sans-serif;
-    padding: 0.5rem 0px 1rem 50rem;
-    width: auto;
-    height: 9rem;
-    color: white;
-    font-size: 5rem;
 }
-#Photo img {
+
+/* Górne menu */
+#UpMenu {
+    width: 100%;
+    height: 8rem;
+    background-color: rgb(8, 7, 7);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+}
+
+#UpMenu a {
+    font-size: 3rem;
+    color: white;
+    text-decoration: none;
+}
+
+.Upmenu {
+    font-size: 3rem;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#Photo {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 kolumny na szerokich ekranach */
+    gap: 1rem;
+    justify-content: center;
+    padding: 1rem;
+}
+
+img {
     border-radius: 1rem;
-    margin: 0px 0px 2rem 1rem;
-    width: 25rem;
+    width: 100%;
+    max-width: 25rem;
 }
 
 #helppasek {
-    width: 5rem;
-    height: 100rem;
-    float: left;
+    display: none;
+}
+
+/* Media queries dla tabletów */
+@media (max-width: 1024px) {
+    #UpMenu {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .Upmenu {
+        font-size: 2rem;
+        padding: 1rem 0;
+    }
+
+    #Photo {
+        grid-template-columns: repeat(3, 1fr); /* 3 kolumny na tabletach */
+    }
+}
+
+/* Media queries dla telefonów */
+@media (max-width: 768px) {
+    #UpMenu {
+        flex-direction: column;
+        height: auto;
+    }
+
+    #UpMenu a {
+        font-size: 2rem;
+    }
+
+    .Upmenu {
+        font-size: 1.5rem;
+    }
+
+    #Photo {
+        grid-template-columns: repeat(2, 1fr); /* 2 kolumny na mniejszych ekranach */
+    }
+}
+
+/* Media queries dla bardzo małych ekranów */
+@media (max-width: 480px) {
+    #UpMenu {
+        padding: 0.5rem;
+    }
+
+    #UpMenu a {
+        font-size: 1.5rem;
+    }
+
+    .Upmenu {
+        font-size: 1.2rem;
+    }
+
+    #Photo {
+        grid-template-columns: 1fr; /* 1 kolumna na bardzo małych ekranach */
+    }
 }
